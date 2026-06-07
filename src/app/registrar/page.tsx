@@ -232,12 +232,12 @@ export default function RegistrarPage() {
 
               <div>
                 <label htmlFor="direccion" style={labelStyle}>Dirección *</label>
-                <input id="direccion" name="direccion" type="text" required style={inputStyle} placeholder="Ej: Calle Mayor 10, Madrid" />
+                <input id="direccion" name="direccion" type="text" required style={inputStyle} placeholder="Ej: Av. Miranda, Centro de Maturín" />
               </div>
 
               <div>
                 <label htmlFor="telefono" style={labelStyle}>Teléfono *</label>
-                <input id="telefono" name="telefono" type="tel" required style={inputStyle} placeholder="Ej: +34 910 123 456" />
+                <input id="telefono" name="telefono" type="tel" required style={inputStyle} placeholder="Ej: +58 414 1234567" />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
