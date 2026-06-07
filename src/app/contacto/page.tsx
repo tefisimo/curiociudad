@@ -3,8 +3,8 @@ import SiteFooter from "@/components/SiteFooter";
 
 export const metadata = { title: "Contacto — CurioCiudad" };
 
-const EMAIL = "hola@curiociudad.com";
-const WHATSAPP = "34600000000"; // reemplaza con el número real
+const EMAIL = "curiociudad.ve@gmail.com";
+const WHATSAPP = "584148791514";
 
 export default function ContactoPage() {
   return (
