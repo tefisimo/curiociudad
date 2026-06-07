@@ -32,7 +32,7 @@ export default function SiteHeader() {
         style={{ maxWidth: "1280px" }}
       >
         <nav className="hidden md:flex items-center gap-7">
-          <a href="#" style={navLinkStyle}>Nosotros</a>
+          <Link href="/nosotros" style={navLinkStyle}>Nosotros</Link>
           <Link href="/registrar" style={navLinkStyle}>Registrar</Link>
         </nav>
 
@@ -77,10 +77,10 @@ export default function SiteHeader() {
           className="md:hidden px-8 pb-5 flex flex-col gap-5"
           style={{ borderTop: "1px solid #E9E2DA" }}
         >
-          <a href="#" style={navLinkStyle}>Nosotros</a>
+          <Link href="/nosotros" style={navLinkStyle}>Nosotros</Link>
           <Link href="/registrar" style={navLinkStyle}>Registrar</Link>
           <Link href="/" style={navLinkStyle}>Ver todo</Link>
-          <a href="#" style={{ ...navLinkStyle, color: "#0058BD" }}>Suscribirse</a>
+          <Link href="/suscribirse" style={{ ...navLinkStyle, color: "#0058BD" }}>Suscribirse</Link>
         </div>
       )}
     </header>
