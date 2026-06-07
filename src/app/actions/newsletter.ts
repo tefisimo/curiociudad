@@ -6,7 +6,10 @@ function emailTemplate(nombre: string | null): string {
   const saludo = nombre ? `Hola, <strong>${nombre}</strong>` : "Hola";
   return `<!DOCTYPE html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Federo&display=swap');</style>
+</head>
 <body style="margin:0;padding:0;background-color:#FAF8F5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF8F5;">
@@ -26,7 +29,7 @@ function emailTemplate(nombre: string | null): string {
               <p style="margin:16px 0 4px;color:rgba(255,255,255,0.55);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;">
                 Directorio de negocios locales
               </p>
-              <p style="margin:0;color:#ffffff;font-size:28px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;line-height:1.1;">
+              <p style="margin:0;color:#ffffff;font-size:28px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;line-height:1.1;font-family:'Federo',Georgia,serif;">
                 CURIOCIUDAD
               </p>
             </td>
