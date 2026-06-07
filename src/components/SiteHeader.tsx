@@ -40,8 +40,9 @@ export default function SiteHeader() {
           href="/"
           className="absolute left-1/2 -translate-x-1/2"
           style={{
+            fontFamily: "var(--font-federo)",
             fontSize: "17px",
-            fontWeight: 700,
+            fontWeight: 400,
             textTransform: "uppercase",
             letterSpacing: "0.12em",
             color: "#000",

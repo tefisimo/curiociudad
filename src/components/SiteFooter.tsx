@@ -23,8 +23,9 @@ export default function SiteFooter() {
         <div>
           <p
             style={{
+              fontFamily: "var(--font-federo)",
               fontSize: "22px",
-              fontWeight: 700,
+              fontWeight: 400,
               textTransform: "uppercase",
               letterSpacing: "0.12em",
               color: "#000",
