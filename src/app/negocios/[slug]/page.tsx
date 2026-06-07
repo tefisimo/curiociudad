@@ -6,7 +6,6 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import EstadoAbierto from "@/components/EstadoAbierto";
 import GalleryLightbox from "@/components/GalleryLightbox";
-import BookmarkButton from "@/components/BookmarkButton";
 
 /* ── Metadata ──────────────────────────────────────────────────── */
 
@@ -241,7 +240,6 @@ export default async function DetallePage({
                   {negocio.instagram}
                 </a>
               )}
-              <BookmarkButton />
             </div>
 
             {/* Tags */}

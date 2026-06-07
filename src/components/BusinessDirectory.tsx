@@ -34,14 +34,6 @@ function SparkleIcon() {
   );
 }
 
-function SaveIcon({ active }: { active: boolean }) {
-  return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill={active ? "#0058BD" : "none"} stroke={active ? "#0058BD" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-    </svg>
-  );
-}
-
 function ChevronDownIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -70,15 +62,7 @@ const CATS = [
 
 /* ── BusinessCard ──────────────────────────────────────────────── */
 
-function BusinessCard({
-  negocio,
-  guardado,
-  onToggle,
-}: {
-  negocio: Negocio;
-  guardado: boolean;
-  onToggle: () => void;
-}) {
+function BusinessCard({ negocio }: { negocio: Negocio }) {
   return (
     <Link href={`/negocios/${negocio.slug}`} className="group block">
       <div className="relative overflow-hidden" style={{ aspectRatio: "395/249" }}>
@@ -96,14 +80,6 @@ function BusinessCard({
             Destacado
           </span>
         )}
-        <button
-          onClick={(e) => { e.preventDefault(); onToggle(); }}
-          className="absolute top-3 right-3 flex items-center justify-center transition-opacity duration-150"
-          style={{ color: guardado ? "#0058BD" : "rgba(0,0,0,0.5)" }}
-          aria-label="Guardar negocio"
-        >
-          <SaveIcon active={guardado} />
-        </button>
       </div>
       <div className="pt-4 pb-6">
         <h3 className="mb-2 leading-snug" style={{ fontSize: "20px", fontWeight: 500, color: "#000" }}>
@@ -134,7 +110,6 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
   const [catActiva, setCatActiva] = useState<string | null>(null);
   const [tagsRapidos, setTagsRapidos] = useState<string[]>([]);
   const [tagsExtra, setTagsExtra] = useState<string[]>([]);
-  const [guardados, setGuardados] = useState<number[]>([]);
   const [mostrarFiltros, setMostrarFiltros] = useState(false);
 
   const toggleTagRapido = (tag: string) =>
@@ -142,9 +117,6 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
 
   const toggleTagExtra = (tag: string) =>
     setTagsExtra((p) => (p.includes(tag) ? p.filter((t) => t !== tag) : [...p, tag]));
-
-  const toggleGuardado = (id: number) =>
-    setGuardados((p) => (p.includes(id) ? p.filter((n) => n !== id) : [...p, id]));
 
   const allTags = [...tagsRapidos, ...tagsExtra];
 
@@ -281,8 +253,6 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
               <BusinessCard
                 key={negocio.id}
                 negocio={negocio}
-                guardado={guardados.includes(negocio.id)}
-                onToggle={() => toggleGuardado(negocio.id)}
               />
             ))}
           </div>
