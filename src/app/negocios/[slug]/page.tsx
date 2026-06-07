@@ -1,8 +1,33 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { NEGOCIOS } from "@/lib/data";
+import { getNegocio, getRelacionados } from "@/lib/queries";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import EstadoAbierto from "@/components/EstadoAbierto";
+import GalleryLightbox from "@/components/GalleryLightbox";
+import BookmarkButton from "@/components/BookmarkButton";
+
+/* ── Metadata ──────────────────────────────────────────────────── */
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const negocio = await getNegocio(slug);
+  if (!negocio) return { title: "Negocio no encontrado — CurioCiudad" };
+  return {
+    title: `${negocio.nombre} — CurioCiudad`,
+    description: negocio.desc,
+    openGraph: {
+      title: negocio.nombre,
+      description: negocio.desc,
+      images: [negocio.img],
+    },
+  };
+}
 
 /* ── Icons ─────────────────────────────────────────────────────── */
 
@@ -50,12 +75,24 @@ function PhoneIcon() {
   );
 }
 
+function InstagramIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 /* ── Related card ──────────────────────────────────────────────── */
 
-function RelatedCard({ negocio }: { negocio: (typeof NEGOCIOS)[0] }) {
+import type { Negocio } from "@/lib/data";
+
+function RelatedCard({ negocio }: { negocio: Negocio }) {
   return (
     <Link href={`/negocios/${negocio.slug}`} className="group block">
-      <div className="overflow-hidden" style={{ aspectRatio: "395/249" }}>
+      <div className="overflow-hidden" style={{ aspectRatio: "395/249", borderRadius: "4px" }}>
         <img
           src={negocio.img}
           alt={negocio.nombre}
@@ -91,13 +128,13 @@ export default async function DetallePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const negocio = NEGOCIOS.find((n) => n.slug === slug);
+  const negocio = await getNegocio(slug);
 
   if (!negocio) notFound();
 
-  const relacionados = NEGOCIOS.filter(
-    (n) => n.id !== negocio.id && n.cat === negocio.cat
-  ).slice(0, 3);
+  const relacionados = await getRelacionados(negocio.cat, negocio.id);
+
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(negocio.direccion)}`;
 
   const infoLinkStyle = {
     display: "inline-flex" as const,
@@ -144,37 +181,70 @@ export default async function DetallePage({
 
           {/* Left: info */}
           <div className="lg:w-[420px] shrink-0">
-            <h1
-              style={{
-                fontFamily: "var(--font-federo)",
-                fontSize: "clamp(32px, 3vw, 44px)",
-                fontWeight: 400,
-                textTransform: "uppercase",
-                color: "#000",
-                lineHeight: 1.1,
-                marginBottom: "20px",
-              }}
-            >
-              {negocio.nombre}
-            </h1>
 
-            {(negocio.menu || negocio.web) && (
-              <div className="flex flex-wrap gap-3 mb-5">
-                {negocio.menu && (
-                  <a href={negocio.menu} style={infoLinkStyle}>
-                    <MenuBookIcon />
-                    Menú
-                  </a>
-                )}
-                {negocio.web && (
-                  <a href={negocio.web} style={infoLinkStyle}>
-                    <GlobeIcon />
-                    Sitio web
-                  </a>
-                )}
-              </div>
-            )}
+            {/* Título + badge Destacado */}
+            <div className="flex items-start gap-3 mb-4">
+              <h1
+                style={{
+                  fontFamily: "var(--font-federo)",
+                  fontSize: "clamp(32px, 3vw, 44px)",
+                  fontWeight: 400,
+                  textTransform: "uppercase",
+                  color: "#000",
+                  lineHeight: 1.1,
+                }}
+              >
+                {negocio.nombre}
+              </h1>
+              {negocio.destacado && (
+                <span
+                  className="shrink-0 mt-1 text-xs font-semibold uppercase tracking-wide px-3 py-1"
+                  style={{ backgroundColor: "#E4FF22", color: "#000", borderRadius: "24px" }}
+                >
+                  Destacado
+                </span>
+              )}
+            </div>
 
+            {/* Precio + estado abierto */}
+            <div className="flex items-center gap-4 mb-5">
+              {negocio.precio && (
+                <span style={{ fontSize: "14px", fontWeight: 600, color: "#7A736A" }}>
+                  {negocio.precio}
+                </span>
+              )}
+              <EstadoAbierto horario={negocio.horario} />
+            </div>
+
+            {/* CTAs: menú, web, instagram, guardar */}
+            <div className="flex flex-wrap gap-3 mb-5">
+              {negocio.menu && (
+                <a href={negocio.menu} style={infoLinkStyle}>
+                  <MenuBookIcon />
+                  Menú
+                </a>
+              )}
+              {negocio.web && (
+                <a href={negocio.web} style={infoLinkStyle}>
+                  <GlobeIcon />
+                  Sitio web
+                </a>
+              )}
+              {negocio.instagram && (
+                <a
+                  href={`https://instagram.com/${negocio.instagram.replace("@", "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={infoLinkStyle}
+                >
+                  <InstagramIcon />
+                  {negocio.instagram}
+                </a>
+              )}
+              <BookmarkButton />
+            </div>
+
+            {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
               {negocio.tags.map((tag) => (
                 <span
@@ -205,7 +275,24 @@ export default async function DetallePage({
               <p style={labelStyle}>Ubicación</p>
               <div className="flex items-start gap-2" style={{ fontSize: "15px", color: "#47433E" }}>
                 <span className="mt-0.5 shrink-0"><MapPinIcon /></span>
-                <span>{negocio.direccion}</span>
+                <div className="flex flex-col gap-1">
+                  <span>{negocio.direccion}</span>
+                  <a
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                      color: "#0058BD",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Abrir en Google Maps →
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -230,29 +317,9 @@ export default async function DetallePage({
             </div>
           </div>
 
-          {/* Right: gallery */}
+          {/* Right: gallery with lightbox */}
           <div className="flex-1 min-w-0">
-            <div className="overflow-hidden mb-3">
-              <img
-                src={negocio.img}
-                alt={negocio.nombre}
-                className="w-full object-cover"
-                style={{ maxHeight: "480px" }}
-              />
-            </div>
-
-            <div className="grid grid-cols-4 gap-2">
-              {negocio.galeria.map((src, i) => (
-                <div key={i} className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                  <img
-                    src={src}
-                    alt={`${negocio.nombre} foto ${i + 2}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
-                  />
-                </div>
-              ))}
-            </div>
+            <GalleryLightbox main={negocio.img} galeria={negocio.galeria} nombre={negocio.nombre} />
           </div>
         </div>
       </div>
@@ -318,7 +385,7 @@ export default async function DetallePage({
         </div>
       </section>
 
-      {/* ── Try something else ───────────────────────────── */}
+      {/* ── Prueba algo más ───────────────────────────────── */}
       {relacionados.length > 0 && (
         <section className="mx-auto px-8 py-16" style={{ maxWidth: "1280px" }}>
           <h2

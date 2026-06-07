@@ -15,6 +15,9 @@ export type Negocio = {
   telefono: string;
   web?: string;
   menu?: string;
+  instagram?: string;
+  precio?: "€" | "€€" | "€€€";
+  delivery?: boolean;
 };
 
 const GALERIA_A = [
@@ -53,6 +56,9 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 123 456",
     web: "#",
     menu: "#",
+    instagram: "@cafevelarde",
+    precio: "€",
+    delivery: false,
   },
   {
     id: 2,
@@ -80,6 +86,9 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 234 567",
     web: "#",
     menu: "#",
+    instagram: "@mercadonorte",
+    precio: "€€",
+    delivery: true,
   },
   {
     id: 3,
@@ -99,6 +108,9 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 345 678",
     web: "#",
     menu: "#",
+    instagram: "@bovedabistro",
+    precio: "€€€",
+    delivery: false,
   },
   {
     id: 4,
@@ -117,6 +129,9 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle Amparo 56, Madrid",
     telefono: "+34 910 456 789",
     web: "#",
+    instagram: "@larojacanteen",
+    precio: "€€",
+    delivery: false,
   },
   {
     id: 5,
@@ -144,6 +159,9 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 567 890",
     web: "#",
     menu: "#",
+    instagram: "@praderaroadhouse",
+    precio: "€€",
+    delivery: true,
   },
   {
     id: 6,
@@ -163,6 +181,9 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 678 901",
     web: "#",
     menu: "#",
+    instagram: "@elconejoinquieto",
+    precio: "€€",
+    delivery: true,
   },
   {
     id: 7,
@@ -181,6 +202,8 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle Hortaleza 45, Madrid",
     telefono: "+34 910 789 012",
     web: "#",
+    instagram: "@studioindigo",
+    precio: "€€€",
   },
   {
     id: 8,
@@ -207,6 +230,8 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle San Bernardino 3, Madrid",
     telefono: "+34 910 890 123",
     web: "#",
+    instagram: "@libreriaelfaro",
+    precio: "€",
   },
   {
     id: 9,
@@ -225,6 +250,8 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle Manuela Malasaña 16, Madrid",
     telefono: "+34 910 901 234",
     web: "#",
+    instagram: "@casarooster",
+    precio: "€€",
   },
   {
     id: 10,
@@ -251,6 +278,8 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle del Barco 19, Madrid",
     telefono: "+34 910 012 345",
     web: "#",
+    instagram: "@galerialumen",
+    precio: "€€",
   },
   {
     id: 11,
@@ -277,6 +306,8 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle de Bravo Murillo 120, Madrid",
     telefono: "+34 910 123 789",
     web: "#",
+    instagram: "@bovedaclimbing",
+    precio: "€€",
   },
   {
     id: 12,
@@ -303,6 +334,8 @@ export const NEGOCIOS: Negocio[] = [
     direccion: "Calle Gran Vía 35, Planta 7, Madrid",
     telefono: "+34 910 234 890",
     web: "#",
+    instagram: "@laterrazarooftop",
+    precio: "€€€",
   },
 ];
 
