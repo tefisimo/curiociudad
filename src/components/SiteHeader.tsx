@@ -57,9 +57,9 @@ export default function SiteHeader() {
           <Link href="/" style={navLinkStyle}>
             Ver todo
           </Link>
-          <a href="#" style={{ ...navLinkStyle, color: "#0058BD" }}>
+          <Link href="/suscribirse" style={{ ...navLinkStyle, color: "#0058BD" }}>
             Suscribirse
-          </a>
+          </Link>
         </nav>
 
         <button
