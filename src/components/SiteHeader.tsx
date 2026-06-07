@@ -32,11 +32,8 @@ export default function SiteHeader() {
         style={{ maxWidth: "1280px" }}
       >
         <nav className="hidden md:flex items-center gap-7">
-          {["Nosotros", "Registrar"].map((l) => (
-            <a key={l} href="#" style={navLinkStyle}>
-              {l}
-            </a>
-          ))}
+          <a href="#" style={navLinkStyle}>Nosotros</a>
+          <Link href="/registrar" style={navLinkStyle}>Registrar</Link>
         </nav>
 
         <Link
@@ -79,15 +76,10 @@ export default function SiteHeader() {
           className="md:hidden px-8 pb-5 flex flex-col gap-5"
           style={{ borderTop: "1px solid #E9E2DA" }}
         >
-          {["Nosotros", "Registrar", "Ver todo", "Suscribirse"].map((l, i) => (
-            <a
-              key={l}
-              href={l === "Ver todo" ? "/" : "#"}
-              style={{ ...navLinkStyle, color: i === 3 ? "#0058BD" : "#47433E" }}
-            >
-              {l}
-            </a>
-          ))}
+          <a href="#" style={navLinkStyle}>Nosotros</a>
+          <Link href="/registrar" style={navLinkStyle}>Registrar</Link>
+          <Link href="/" style={navLinkStyle}>Ver todo</Link>
+          <a href="#" style={{ ...navLinkStyle, color: "#0058BD" }}>Suscribirse</a>
         </div>
       )}
     </header>
