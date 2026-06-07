@@ -195,7 +195,7 @@ export default function RegistrarPage() {
               <div>
                 <label style={labelStyle}>Rango de precio</label>
                 <div className="flex gap-3">
-                  {(["€", "€€", "€€€"] as const).map((p) => (
+                  {(["$", "$$", "$$$"] as const).map((p) => (
                     <label
                       key={p}
                       style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", fontSize: "15px", color: "#47433E" }}

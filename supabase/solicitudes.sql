@@ -12,7 +12,7 @@ create table if not exists solicitudes (
   telefono         text        not null,
   web              text,
   instagram        text,
-  precio           text        check (precio in ('€', '€€', '€€€')),
+  precio           text        check (precio in ('$', '$$', '$$$')),
   tags             text[]      not null default '{}',
   contacto_nombre  text        not null,
   contacto_email   text        not null,
@@ -26,3 +26,5 @@ alter table solicitudes enable row level security;
 create policy "Inserción pública"
   on solicitudes for insert
   with check (true);
+
+grant insert on solicitudes to anon;

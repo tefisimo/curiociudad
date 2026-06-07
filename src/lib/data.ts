@@ -16,7 +16,7 @@ export type Negocio = {
   web?: string;
   menu?: string;
   instagram?: string;
-  precio?: "€" | "€€" | "€€€";
+  precio?: "$" | "$$" | "$$$";
   delivery?: boolean;
 };
 
@@ -57,7 +57,7 @@ export const NEGOCIOS: Negocio[] = [
     web: "#",
     menu: "#",
     instagram: "@cafevelarde",
-    precio: "€",
+    precio: "$",
     delivery: false,
   },
   {
@@ -87,7 +87,7 @@ export const NEGOCIOS: Negocio[] = [
     web: "#",
     menu: "#",
     instagram: "@mercadonorte",
-    precio: "€€",
+    precio: "$$",
     delivery: true,
   },
   {
@@ -109,7 +109,7 @@ export const NEGOCIOS: Negocio[] = [
     web: "#",
     menu: "#",
     instagram: "@bovedabistro",
-    precio: "€€€",
+    precio: "$$$",
     delivery: false,
   },
   {
@@ -130,7 +130,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 456 789",
     web: "#",
     instagram: "@larojacanteen",
-    precio: "€€",
+    precio: "$$",
     delivery: false,
   },
   {
@@ -160,7 +160,7 @@ export const NEGOCIOS: Negocio[] = [
     web: "#",
     menu: "#",
     instagram: "@praderaroadhouse",
-    precio: "€€",
+    precio: "$$",
     delivery: true,
   },
   {
@@ -182,7 +182,7 @@ export const NEGOCIOS: Negocio[] = [
     web: "#",
     menu: "#",
     instagram: "@elconejoinquieto",
-    precio: "€€",
+    precio: "$$",
     delivery: true,
   },
   {
@@ -203,7 +203,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 789 012",
     web: "#",
     instagram: "@studioindigo",
-    precio: "€€€",
+    precio: "$$$",
   },
   {
     id: 8,
@@ -231,7 +231,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 890 123",
     web: "#",
     instagram: "@libreriaelfaro",
-    precio: "€",
+    precio: "$",
   },
   {
     id: 9,
@@ -251,7 +251,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 901 234",
     web: "#",
     instagram: "@casarooster",
-    precio: "€€",
+    precio: "$$",
   },
   {
     id: 10,
@@ -279,7 +279,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 012 345",
     web: "#",
     instagram: "@galerialumen",
-    precio: "€€",
+    precio: "$$",
   },
   {
     id: 11,
@@ -307,7 +307,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 123 789",
     web: "#",
     instagram: "@bovedaclimbing",
-    precio: "€€",
+    precio: "$$",
   },
   {
     id: 12,
@@ -335,7 +335,7 @@ export const NEGOCIOS: Negocio[] = [
     telefono: "+34 910 234 890",
     web: "#",
     instagram: "@laterrazarooftop",
-    precio: "€€€",
+    precio: "$$$",
   },
 ];
 

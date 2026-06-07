@@ -21,7 +21,7 @@ create table if not exists negocios (
   web          text,
   menu         text,
   instagram    text,
-  precio       text        check (precio in ('€', '€€', '€€€')),
+  precio       text        check (precio in ('$', '$$', '$$$')),
   delivery     boolean     default false,
   created_at   timestamptz default now()
 );
