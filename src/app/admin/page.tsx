@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase-admin";
-import { aprobarSolicitud, rechazarSolicitud } from "./actions";
+import { rechazarSolicitud } from "./actions";
 
 const ESTADO_STYLE: Record<string, { color: string; bg: string; label: string }> = {
   pendiente:  { color: "#92660A", bg: "#FEF3C7", label: "Pendiente" },
@@ -151,24 +152,22 @@ export default async function AdminPage() {
                     <td style={{ padding: "14px 16px" }}>
                       {s.estado === "pendiente" && (
                         <div className="flex gap-2">
-                          <form action={aprobarSolicitud.bind(null, s.id)}>
-                            <button
-                              type="submit"
-                              style={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#fff",
-                                backgroundColor: "#0058BD",
-                                border: "none",
-                                borderRadius: "6px",
-                                padding: "6px 14px",
-                                cursor: "pointer",
-                                whiteSpace: "nowrap",
-                              }}
-                            >
-                              Aprobar
-                            </button>
-                          </form>
+                          <Link
+                            href={`/admin/solicitudes/${s.id}`}
+                            style={{
+                              display: "inline-block",
+                              fontSize: "13px",
+                              fontWeight: 600,
+                              color: "#fff",
+                              backgroundColor: "#0058BD",
+                              borderRadius: "6px",
+                              padding: "6px 14px",
+                              textDecoration: "none",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            Revisar →
+                          </Link>
                           <form action={rechazarSolicitud.bind(null, s.id)}>
                             <button
                               type="submit"

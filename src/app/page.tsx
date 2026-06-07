@@ -1,6 +1,7 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import BusinessDirectory from "@/components/BusinessDirectory";
+import NewsletterForm from "@/components/NewsletterForm";
 import { getNegocios } from "@/lib/queries";
 
 export default async function Home() {
@@ -74,39 +75,7 @@ export default async function Home() {
             </p>
           </div>
 
-          <form className="flex items-center gap-3 w-full md:w-auto">
-            <input
-              type="email"
-              placeholder="Tu correo electrónico"
-              className="flex-1 md:w-64 outline-none"
-              style={{
-                fontSize: "15px",
-                color: "#000",
-                backgroundColor: "#FAF8F5",
-                border: "1px solid #D5CDC3",
-                borderRadius: "100px",
-                padding: "10px 18px",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                fontSize: "15px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.06em",
-                color: "#fff",
-                backgroundColor: "#0058BD",
-                border: "none",
-                borderRadius: "100px",
-                padding: "10px 22px",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Suscribirse
-            </button>
-          </form>
+          <NewsletterForm variant="inline" />
         </div>
       </section>
 

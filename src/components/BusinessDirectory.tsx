@@ -52,6 +52,15 @@ function FilterIcon() {
   );
 }
 
+function SearchIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  );
+}
+
 /* ── Data ──────────────────────────────────────────────────────── */
 
 const CATS = [
@@ -111,6 +120,7 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
   const [tagsRapidos, setTagsRapidos] = useState<string[]>([]);
   const [tagsExtra, setTagsExtra] = useState<string[]>([]);
   const [mostrarFiltros, setMostrarFiltros] = useState(false);
+  const [busqueda, setBusqueda] = useState("");
 
   const toggleTagRapido = (tag: string) =>
     setTagsRapidos((p) => (p.includes(tag) ? p.filter((t) => t !== tag) : [...p, tag]));
@@ -120,11 +130,13 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
 
   const DELIVERY_TAGS = ["A domicilio", "Delivery disponible"];
   const filtrarDelivery = tagsRapidos.some((t) => DELIVERY_TAGS.includes(t));
+  const q = busqueda.toLowerCase().trim();
 
   const filtrados = negocios.filter((n) => {
     if (catActiva && n.cat !== catActiva) return false;
     if (filtrarDelivery && !n.delivery) return false;
     if (tagsExtra.length > 0 && !tagsExtra.some((t) => n.tags.includes(t))) return false;
+    if (q && !n.nombre.toLowerCase().includes(q) && !n.desc.toLowerCase().includes(q)) return false;
     return true;
   });
 
@@ -192,6 +204,24 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
                 );
               })}
 
+              <div className="relative hidden sm:flex items-center" style={{ border: "1px solid #E9E2DA", borderRadius: "24px", padding: "5px 12px", gap: "6px", backgroundColor: "#fff" }}>
+                <SearchIcon />
+                <input
+                  type="search"
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  placeholder="Buscar..."
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    fontSize: "14px",
+                    color: "#47433E",
+                    width: "120px",
+                  }}
+                />
+              </div>
+
               <button
                 onClick={() => setMostrarFiltros(!mostrarFiltros)}
                 className="flex items-center gap-2 transition-colors duration-150"
@@ -215,9 +245,20 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
 
           {mostrarFiltros && (
             <div
-              className="flex flex-wrap gap-2 pb-4"
+              className="flex flex-col gap-3 pb-4"
               style={{ borderTop: "1px solid #F0EAE3", paddingTop: "14px" }}
             >
+              <div className="flex sm:hidden items-center" style={{ border: "1px solid #E9E2DA", borderRadius: "24px", padding: "7px 14px", gap: "8px", backgroundColor: "#fff" }}>
+                <SearchIcon />
+                <input
+                  type="search"
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  placeholder="Buscar negocio..."
+                  style={{ border: "none", outline: "none", background: "transparent", fontSize: "14px", color: "#47433E", flex: 1 }}
+                />
+              </div>
+              <div className="flex flex-wrap gap-2">
               {TAGS_EXTRA.map((tag) => {
                 const activo = tagsExtra.includes(tag);
                 return (
@@ -242,6 +283,7 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
                   </button>
                 );
               })}
+              </div>
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export const metadata = { title: "Suscribirse — CurioCiudad" };
 
@@ -20,38 +21,7 @@ export default function SuscribirsePage() {
       </section>
 
       <div className="mx-auto px-8 py-16" style={{ maxWidth: "560px" }}>
-        <form className="flex flex-col gap-4">
-          <div>
-            <label style={{ display: "block", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#7A736A", marginBottom: "6px" }}>
-              Tu nombre
-            </label>
-            <input
-              type="text"
-              placeholder="Nombre"
-              style={{ width: "100%", fontSize: "15px", color: "#000", backgroundColor: "#fff", border: "1px solid #E9E2DA", borderRadius: "8px", padding: "10px 14px", outline: "none" }}
-            />
-          </div>
-          <div>
-            <label style={{ display: "block", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#7A736A", marginBottom: "6px" }}>
-              Tu email *
-            </label>
-            <input
-              type="email"
-              required
-              placeholder="tu@email.com"
-              style={{ width: "100%", fontSize: "15px", color: "#000", backgroundColor: "#fff", border: "1px solid #E9E2DA", borderRadius: "8px", padding: "10px 14px", outline: "none" }}
-            />
-          </div>
-          <button
-            type="submit"
-            style={{ fontSize: "15px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "#fff", backgroundColor: "#0058BD", border: "none", borderRadius: "100px", padding: "14px 32px", cursor: "pointer", marginTop: "8px", alignSelf: "flex-start" }}
-          >
-            Suscribirse
-          </button>
-          <p style={{ fontSize: "13px", color: "#7A736A" }}>
-            Sin spam. Puedes darte de baja en cualquier momento.
-          </p>
-        </form>
+        <NewsletterForm variant="stacked" />
       </div>
 
       <SiteFooter />
