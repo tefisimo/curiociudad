@@ -5,5 +5,6 @@ create table if not exists suscriptores (
   created_at timestamptz default now()
 );
 
--- No RLS needed — inserts happen server-side via service role
-alter table suscriptores disable row level security;
+-- RLS enabled with no public policies.
+-- All access goes through supabaseAdmin (service role), which bypasses RLS.
+alter table suscriptores enable row level security;

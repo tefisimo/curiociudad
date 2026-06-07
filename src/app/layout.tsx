@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Federo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,9 +15,22 @@ const federo = Federo({
   weight: "400",
 });
 
+const BASE = "https://curiociudad.vercel.app";
+
 export const metadata: Metadata = {
-  title: "CurioCiudad — Los mejores negocios locales",
-  description: "Una selección cuidada de los mejores lugares para comer, comprar y hacer cosas en tu ciudad.",
+  title: { default: "CurioCiudad", template: "%s — CurioCiudad" },
+  description: "Una selección cuidada de los mejores negocios locales: restaurantes, tiendas y actividades en tu ciudad.",
+  metadataBase: new URL(BASE),
+  openGraph: {
+    siteName: "CurioCiudad",
+    locale: "es_VE",
+    type: "website",
+    url: BASE,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@curiociudad",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +45,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-inter, Inter, sans-serif)", backgroundColor: "#FAF8F5" }}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

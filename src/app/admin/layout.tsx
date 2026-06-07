@@ -24,17 +24,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               CurioCiudad
             </Link>
             <span style={{ color: "#E9E2DA" }}>|</span>
-            <span
-              style={{
-                fontSize: "12px",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                color: "#7A736A",
-              }}
+            <Link
+              href="/admin"
+              style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#7A736A", textDecoration: "none" }}
             >
-              Admin
-            </span>
+              Solicitudes
+            </Link>
+            <Link
+              href="/admin/suscriptores"
+              style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#7A736A", textDecoration: "none" }}
+            >
+              Suscriptores
+            </Link>
           </div>
 
           <form action={signOut}>
