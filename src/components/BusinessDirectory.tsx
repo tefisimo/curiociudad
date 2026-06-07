@@ -118,11 +118,13 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
   const toggleTagExtra = (tag: string) =>
     setTagsExtra((p) => (p.includes(tag) ? p.filter((t) => t !== tag) : [...p, tag]));
 
-  const allTags = [...tagsRapidos, ...tagsExtra];
+  const DELIVERY_TAGS = ["A domicilio", "Delivery disponible"];
+  const filtrarDelivery = tagsRapidos.some((t) => DELIVERY_TAGS.includes(t));
 
   const filtrados = negocios.filter((n) => {
     if (catActiva && n.cat !== catActiva) return false;
-    if (allTags.length > 0 && !allTags.some((t) => n.tags.includes(t))) return false;
+    if (filtrarDelivery && !n.delivery) return false;
+    if (tagsExtra.length > 0 && !tagsExtra.some((t) => n.tags.includes(t))) return false;
     return true;
   });
 
