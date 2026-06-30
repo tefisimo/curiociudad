@@ -22,9 +22,5 @@ body {
     flex: 1;
     width: 100%;
   }
-  .hero-section > div:first-child {
-    justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+
 }

@@ -14,7 +14,7 @@ export default async function Home() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="hero-section flex overflow-hidden" style={{ height: "520px" }}>
         <div
-          className="w-1/2 md:w-1/2 flex flex-col justify-end px-6 sm:px-10 md:px-16 py-6 md:pb-14"
+          className="w-1/2 flex flex-col justify-center md:justify-end px-6 sm:px-10 md:px-16 py-6 md:pb-14"
           style={{ backgroundColor: "#0058BD" }}
         >
           <h1
