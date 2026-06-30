@@ -147,7 +147,7 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
         className="sticky top-0 z-20"
         style={{ backgroundColor: "#FAF8F5", borderBottom: "1px solid #E9E2DA" }}
       >
-        <div className="mx-auto px-8" style={{ maxWidth: "1280px" }}>
+        <div className="mx-auto px-4 sm:px-8" style={{ maxWidth: "1280px" }}>
           <div className="flex items-center justify-between py-4 gap-4">
             <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide">
               {CATS.map(({ id, label, Icon }) => {
@@ -290,7 +290,7 @@ export default function BusinessDirectory({ negocios }: { negocios: Negocio[] })
       </div>
 
       {/* Listings */}
-      <main className="mx-auto px-8 py-12" style={{ maxWidth: "1280px" }}>
+      <main className="mx-auto px-4 sm:px-8 py-8 sm:py-12" style={{ maxWidth: "1280px" }}>
         {filtrados.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2">
             {filtrados.map((negocio) => (

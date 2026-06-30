@@ -12,15 +12,15 @@ export default async function Home() {
       <SiteHeader />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="flex overflow-hidden" style={{ height: "520px" }}>
+      <section className="flex flex-col md:flex-row overflow-hidden" style={{ minHeight: "320px" }}>
         <div
-          className="w-1/2 flex flex-col justify-end px-16 pb-14"
-          style={{ backgroundColor: "#0058BD" }}
+          className="w-full md:w-1/2 flex flex-col justify-end px-6 sm:px-10 md:px-16 py-10 md:pb-14"
+          style={{ backgroundColor: "#0058BD", minHeight: "260px" }}
         >
           <h1
             style={{
               fontFamily: "var(--font-federo)",
-              fontSize: "clamp(36px, 4vw, 58px)",
+              fontSize: "clamp(28px, 4vw, 58px)",
               fontWeight: 400,
               textTransform: "uppercase",
               color: "#fff",
@@ -31,18 +31,19 @@ export default async function Home() {
             Los mejores negocios locales.
           </h1>
           <p
-            className="mt-5"
-            style={{ fontSize: "18px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, maxWidth: "360px" }}
+            className="mt-4"
+            style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, maxWidth: "360px" }}
           >
             Una selección cuidada de los mejores lugares para comer, comprar y hacer cosas en tu ciudad.
           </p>
         </div>
 
-        <div className="w-1/2 overflow-hidden">
+        <div className="w-full md:w-1/2 overflow-hidden" style={{ minHeight: "220px", maxHeight: "520px" }}>
           <img
             src="https://cdn.prod.website-files.com/64bb92dbd57f710d9f3396e0/64ef6b4e258f87650796f7d6_kayleigh-harrington-yhn4okt6ci0-unsplash.webp"
             alt="Negocios locales"
             className="w-full h-full object-cover"
+            style={{ minHeight: "220px" }}
           />
         </div>
       </section>
@@ -53,7 +54,7 @@ export default async function Home() {
       {/* ── Newsletter ───────────────────────────────────────── */}
       <section style={{ backgroundColor: "#F3ECE5" }}>
         <div
-          className="mx-auto px-8 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+          className="mx-auto px-4 sm:px-8 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           style={{ maxWidth: "1280px" }}
         >
           <div>

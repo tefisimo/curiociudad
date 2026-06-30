@@ -28,7 +28,7 @@ export default function SiteHeader() {
   return (
     <header style={{ backgroundColor: "#FAF8F5", borderBottom: "1px solid #E9E2DA" }}>
       <div
-        className="mx-auto px-8 py-5 flex items-center justify-between relative"
+        className="mx-auto px-4 sm:px-8 py-5 flex items-center justify-between relative"
         style={{ maxWidth: "1280px" }}
       >
         <nav className="hidden md:flex items-center gap-7">
@@ -74,7 +74,7 @@ export default function SiteHeader() {
 
       {menuAbierto && (
         <div
-          className="md:hidden px-8 pb-5 flex flex-col gap-5"
+          className="md:hidden px-4 sm:px-8 pb-5 flex flex-col gap-5"
           style={{ borderTop: "1px solid #E9E2DA" }}
         >
           <Link href="/nosotros" style={navLinkStyle}>Nosotros</Link>

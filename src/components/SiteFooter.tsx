@@ -35,7 +35,7 @@ export default function SiteFooter() {
   return (
     <footer style={{ backgroundColor: "#FAF8F5", borderTop: "1px solid #E9E2DA" }}>
       <div
-        className="mx-auto px-8 py-16 flex flex-col md:flex-row gap-12 justify-between"
+        className="mx-auto px-4 sm:px-8 py-12 sm:py-16 flex flex-col md:flex-row gap-10 md:gap-12 justify-between"
         style={{ maxWidth: "1280px" }}
       >
         <div>
@@ -83,7 +83,7 @@ export default function SiteFooter() {
       </div>
 
       <div
-        className="mx-auto px-8 py-5 flex items-center justify-between"
+        className="mx-auto px-4 sm:px-8 py-5 flex items-center justify-between"
         style={{ maxWidth: "1280px", borderTop: "1px solid #E9E2DA", fontSize: "13px", color: "#7A736A" }}
       >
         <span>© 2026 CurioCiudad</span>

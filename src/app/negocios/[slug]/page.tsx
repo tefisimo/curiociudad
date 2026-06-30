@@ -164,7 +164,7 @@ export default async function DetallePage({
       <SiteHeader />
 
       {/* ── Main content ──────────────────────────────────── */}
-      <div className="mx-auto px-8 py-10" style={{ maxWidth: "1280px" }}>
+      <div className="mx-auto px-4 sm:px-8 py-8 sm:py-10" style={{ maxWidth: "1280px" }}>
 
         {/* Breadcrumb */}
         <div className="flex items-center gap-1.5 mb-8" style={{ fontSize: "13px", color: "#7A736A" }}>
@@ -325,7 +325,7 @@ export default async function DetallePage({
       {/* ── Newsletter ────────────────────────────────────── */}
       <section className="mt-16" style={{ backgroundColor: "#F3ECE5" }}>
         <div
-          className="mx-auto px-8 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+          className="mx-auto px-4 sm:px-8 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           style={{ maxWidth: "1280px" }}
         >
           <div>
@@ -385,7 +385,7 @@ export default async function DetallePage({
 
       {/* ── Prueba algo más ───────────────────────────────── */}
       {relacionados.length > 0 && (
-        <section className="mx-auto px-8 py-16" style={{ maxWidth: "1280px" }}>
+        <section className="mx-auto px-4 sm:px-8 py-12 sm:py-16" style={{ maxWidth: "1280px" }}>
           <h2
             className="mb-10"
             style={{
