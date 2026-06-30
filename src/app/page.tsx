@@ -12,9 +12,9 @@ export default async function Home() {
       <SiteHeader />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="flex flex-col md:flex-row overflow-hidden" style={{ height: "520px" }}>
+      <section className="hero-section flex overflow-hidden" style={{ height: "520px" }}>
         <div
-          className="flex-1 md:flex-none md:w-1/2 flex flex-col justify-end px-6 sm:px-10 md:px-16 py-6 md:pb-14"
+          className="w-1/2 md:w-1/2 flex flex-col justify-end px-6 sm:px-10 md:px-16 py-6 md:pb-14"
           style={{ backgroundColor: "#0058BD" }}
         >
           <h1
@@ -38,7 +38,7 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="flex-1 md:flex-none md:w-1/2 overflow-hidden">
+        <div className="w-1/2 md:w-1/2 overflow-hidden">
           <img
             src="https://cdn.prod.website-files.com/64bb92dbd57f710d9f3396e0/64ef6b4e258f87650796f7d6_kayleigh-harrington-yhn4okt6ci0-unsplash.webp"
             alt="Negocios locales"

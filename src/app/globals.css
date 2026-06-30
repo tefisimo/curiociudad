@@ -13,3 +13,13 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 767px) {
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-section > * {
+    flex: 1;
+    width: 100%;
+  }
+}
