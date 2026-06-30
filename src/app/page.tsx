@@ -38,12 +38,11 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="w-full md:w-1/2 overflow-hidden" style={{ minHeight: "220px", maxHeight: "520px" }}>
+        <div className="w-full md:w-1/2 h-56 sm:h-72 md:h-auto overflow-hidden">
           <img
             src="https://cdn.prod.website-files.com/64bb92dbd57f710d9f3396e0/64ef6b4e258f87650796f7d6_kayleigh-harrington-yhn4okt6ci0-unsplash.webp"
             alt="Negocios locales"
             className="w-full h-full object-cover"
-            style={{ minHeight: "220px" }}
           />
         </div>
       </section>

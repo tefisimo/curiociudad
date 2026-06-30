@@ -74,7 +74,7 @@ export default function SiteHeader() {
 
       {menuAbierto && (
         <div
-          className="md:hidden px-4 sm:px-8 pb-5 flex flex-col gap-5"
+          className="md:hidden px-4 sm:px-8 py-5 flex flex-col items-center gap-5"
           style={{ borderTop: "1px solid #E9E2DA" }}
         >
           <Link href="/nosotros" style={navLinkStyle}>Nosotros</Link>
