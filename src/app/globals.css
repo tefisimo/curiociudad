@@ -21,9 +21,13 @@ body {
 @media (max-width: 767px) {
   .hero-section {
     flex-direction: column;
-    height: 400px;
+    height: 420px;
   }
-  .hero-section > * {
+  .hero-section > *:first-child {
+    flex: 0 0 160px;
+    width: 100%;
+  }
+  .hero-section > *:last-child {
     flex: 1;
     width: 100%;
   }

@@ -31,8 +31,8 @@ export default async function Home() {
             Los mejores negocios locales.
           </h1>
           <p
-            className="mt-3 md:mt-5"
-            style={{ fontSize: "clamp(13px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, maxWidth: "360px" }}
+            className="hidden md:block mt-5"
+            style={{ fontSize: "18px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, maxWidth: "360px" }}
           >
             Una selección cuidada de los mejores lugares para comer, comprar y hacer cosas en tu ciudad.
           </p>
