@@ -20,7 +20,7 @@ export default async function Home() {
           <h1
             style={{
               fontFamily: "var(--font-federo)",
-              fontSize: "clamp(28px, 4vw, 58px)",
+              fontSize: "clamp(22px, 4vw, 58px)",
               fontWeight: 400,
               textTransform: "uppercase",
               color: "#fff",
@@ -32,7 +32,7 @@ export default async function Home() {
           </h1>
           <p
             className="mt-3 md:mt-5"
-            style={{ fontSize: "clamp(12px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "360px" }}
+            style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "360px" }}
           >
             Una selección cuidada de los mejores lugares para comer, comprar y hacer cosas en tu ciudad.
           </p>

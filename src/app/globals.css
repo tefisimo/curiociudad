@@ -24,8 +24,10 @@ body {
     height: 560px;
   }
   .hero-section > *:first-child {
-    flex: 0 0 200px;
+    flex: 0 0 auto;
     width: 100%;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
   .hero-section > *:last-child {
     flex: 1;
