@@ -12,9 +12,9 @@ export default async function Home() {
       <SiteHeader />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="flex overflow-hidden" style={{ height: "520px" }}>
+      <section className="flex flex-col md:flex-row overflow-hidden" style={{ height: "520px" }}>
         <div
-          className="w-1/2 flex flex-col justify-end px-4 sm:px-10 md:px-16 py-8 md:pb-14"
+          className="flex-1 md:flex-none md:w-1/2 flex flex-col justify-end px-6 sm:px-10 md:px-16 py-6 md:pb-14"
           style={{ backgroundColor: "#0058BD" }}
         >
           <h1
@@ -31,14 +31,14 @@ export default async function Home() {
             Los mejores negocios locales.
           </h1>
           <p
-            className="mt-5"
+            className="mt-3 md:mt-5"
             style={{ fontSize: "clamp(13px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, maxWidth: "360px" }}
           >
             Una selección cuidada de los mejores lugares para comer, comprar y hacer cosas en tu ciudad.
           </p>
         </div>
 
-        <div className="w-1/2 overflow-hidden">
+        <div className="flex-1 md:flex-none md:w-1/2 overflow-hidden">
           <img
             src="https://cdn.prod.website-files.com/64bb92dbd57f710d9f3396e0/64ef6b4e258f87650796f7d6_kayleigh-harrington-yhn4okt6ci0-unsplash.webp"
             alt="Negocios locales"
