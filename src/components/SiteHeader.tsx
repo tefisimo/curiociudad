@@ -12,6 +12,17 @@ const navLinkStyle = {
   textDecoration: "none",
 };
 
+const barBase = {
+  position: "absolute" as const,
+  left: 0,
+  display: "block",
+  width: "24px",
+  height: "1.5px",
+  backgroundColor: "#47433E",
+  transition: "top 300ms ease, transform 300ms ease, opacity 300ms ease",
+  borderRadius: "2px",
+};
+
 export default function SiteHeader() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
@@ -50,50 +61,49 @@ export default function SiteHeader() {
           </Link>
         </nav>
 
-        {/* Hamburger / X button */}
+        {/* Hamburger → X */}
         <button
-          className="md:hidden relative w-6 h-6"
-          style={{ color: "#47433E", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+          className="md:hidden"
           onClick={() => setMenuAbierto(!menuAbierto)}
           aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+          style={{
+            position: "relative",
+            width: "24px",
+            height: "24px",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            flexShrink: 0,
+          }}
         >
-          <span
-            className="absolute left-0 block h-[1.5px] bg-current transition-all duration-300 ease-in-out"
-            style={{
-              width: "24px",
-              top: menuAbierto ? "11px" : "4px",
-              transform: menuAbierto ? "rotate(45deg)" : "rotate(0deg)",
-            }}
-          />
-          <span
-            className="absolute left-0 block h-[1.5px] bg-current transition-all duration-300 ease-in-out"
-            style={{
-              width: "24px",
-              top: "11px",
-              opacity: menuAbierto ? 0 : 1,
-              transform: menuAbierto ? "scaleX(0)" : "scaleX(1)",
-            }}
-          />
-          <span
-            className="absolute left-0 block h-[1.5px] bg-current transition-all duration-300 ease-in-out"
-            style={{
-              width: "24px",
-              top: menuAbierto ? "11px" : "18px",
-              transform: menuAbierto ? "rotate(-45deg)" : "rotate(0deg)",
-            }}
-          />
+          <span style={{ ...barBase, top: menuAbierto ? "11px" : "4px",  transform: menuAbierto ? "rotate(45deg)"  : "rotate(0deg)"  }} />
+          <span style={{ ...barBase, top: "11px",                        opacity:   menuAbierto ? 0 : 1,            transform: menuAbierto ? "scaleX(0)"     : "scaleX(1)"     }} />
+          <span style={{ ...barBase, top: menuAbierto ? "11px" : "18px", transform: menuAbierto ? "rotate(-45deg)" : "rotate(0deg)"  }} />
         </button>
       </div>
 
-      {/* Mobile menu — always rendered, animated with max-height */}
+      {/* Mobile menu — slides open/closed */}
       <div
-        className="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+        className="md:hidden overflow-hidden"
         style={{
-          maxHeight: menuAbierto ? "260px" : "0px",
-          borderTop: menuAbierto ? "1px solid #E9E2DA" : "1px solid transparent",
+          maxHeight: menuAbierto ? "280px" : "0px",
+          transition: "max-height 300ms ease",
+          borderTop: "1px solid #E9E2DA",
         }}
       >
-        <nav className="flex flex-col items-center gap-5 py-6">
+        <nav
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "20px",
+            padding: "24px 16px",
+            opacity: menuAbierto ? 1 : 0,
+            transform: menuAbierto ? "translateY(0)" : "translateY(-8px)",
+            transition: "opacity 250ms ease 50ms, transform 250ms ease 50ms",
+          }}
+        >
           <Link href="/nosotros" style={navLinkStyle}>Nosotros</Link>
           <Link href="/registrar" style={navLinkStyle}>Registrar</Link>
           <Link href="/" style={navLinkStyle}>Ver todo</Link>
