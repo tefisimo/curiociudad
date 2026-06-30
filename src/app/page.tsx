@@ -12,7 +12,7 @@ export default async function Home() {
       <SiteHeader />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="hero-section flex overflow-hidden" style={{ height: "520px" }}>
+      <section className="hero-section flex overflow-hidden">
         <div
           className="w-1/2 flex flex-col justify-center md:justify-end px-6 sm:px-10 md:px-16 py-6 md:pb-14"
           style={{ backgroundColor: "#0058BD" }}
