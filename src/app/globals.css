@@ -17,10 +17,10 @@ body {
 @media (max-width: 767px) {
   .hero-section {
     flex-direction: column;
+    height: 400px;
   }
   .hero-section > * {
     flex: 1;
     width: 100%;
   }
-
 }

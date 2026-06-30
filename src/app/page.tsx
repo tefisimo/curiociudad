@@ -20,7 +20,7 @@ export default async function Home() {
           <h1
             style={{
               fontFamily: "var(--font-federo)",
-              fontSize: "clamp(22px, 4vw, 58px)",
+              fontSize: "clamp(28px, 4vw, 58px)",
               fontWeight: 400,
               textTransform: "uppercase",
               color: "#fff",
